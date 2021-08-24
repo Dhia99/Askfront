@@ -1,0 +1,57 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-user mr-2"></i>Details de {{client.name}}</h3>
+            </div>
+            <div class="card-body">
+                <div>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="country" style="font-size: small;" class="form-label mr-3">Type de client :</label>
+                            <h6 style="font-size: small;">{{client.type}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <label style="font-size: small;" for="civilite">Civilité :</label>
+                            <h6 style="font-size: small;">{{client.civilite}}</h6>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label style="font-size: small;" for="name">Nom Complet :</label>
+                            <h6 style="font-size: small;">{{client.name}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <label style="font-size: small;" for="email">Email :</label>
+                            <h6 style="font-size: small;">{{client.email}}</h6>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label style="font-size: small;" for="adress">Adress :</label>
+                            <h6 style="font-size: small;">{{client.adress}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <label style="font-size: small;" for="ntelephone">N°Télephone :</label>
+                            <h6 style="font-size: small;">{{client.ntelephone}}</h6>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3 ">
+                        <div class="col-md-6 ">
+                            <label style="font-size: small;" for="matfiscale">Matricule fiscale :</label>
+                            <h6 style="font-size: small;">{{client.matfiscale}}</h6>
+                        </div>
+                        <div class="col-sm-6 ">
+                            <label style="font-size: small;" for="raisonsociale">Raison Sociale :</label>
+                            <h6 style="font-size: small;">{{client.raisonsociale}}</h6>
+                        </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class=" text-right ">
+                        <button type="button" style="font-size: small;" (click)="(annuler())" class="btn btn-warning mr-2">Retour</button>
+                    </div>
+                </div>
+            </div>
+        </div>

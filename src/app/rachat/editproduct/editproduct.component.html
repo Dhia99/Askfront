@@ -1,0 +1,121 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-box-open mr-2"></i>Modifier {{product.name}}</h3>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="updateProduct()">
+                    <div class="col-sm-3">
+                        <label for="type" class="form-label mr-3" style="font-size: small; color: lightslategrey;">Type du produit :</label>
+                        <select class="form-select" id="country" style="font-size: small;" [(ngModel)]="product.type" [ngModelOptions]="{standalone: true}" required>
+                  <option>materiel</option>
+                  <option>service</option>
+                </select>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="name" style="font-size: small;color: lightslategrey;">Libellé :</label>
+                            <input type="text" name="name" class="form-control" style="font-size: small;" [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="category" style="font-size: small;color: lightslategrey;">Catégorie :</label>
+                            <input type="text" style="font-size: small;" name="category" class="form-control" [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="marque" style="font-size: small;color: lightslategrey;">Marque :</label>
+                            <input type="text" name="marque" style="font-size: small;" class="form-control" [(ngModel)]="product.marque" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="Enstock" style="font-size: small;color: lightslategrey;">Quantité en stock :</label>
+                            <input type="number" name="Enstock" style="font-size: small;" class="form-control" [(ngModel)]="product.Enstock" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="name" style="font-size: small;color: lightslategrey;">Description :</label>
+                            <textarea class="form-control" style="font-size: small;" [(ngModel)]="product.desc" [ngModelOptions]="{standalone: true}" requiredcols="60">
+                                </textarea>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row gy-2 gx-3 align-items-center">
+                        <div class="col-md-4">
+                            <label for="pricev" style="font-size: small;color: lightslategrey;">Prix public :</label>
+                            <input type="number" name="pricev" style="font-size: small;" class="form-control" [(ngModel)]="product.pricev" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="col-sm-3 ml-5">
+                            <label for="TVA" style="font-size: small;color: lightslategrey;" class="form-label mr-3">TVA :</label>
+                            <select class="form-select" value="0" style="font-size: small;" id="country" (change)="gettva($event)" [(ngModel)]="product.TVA" [ngModelOptions]="{standalone: true}" required>
+                         <option>0</option>
+                         <option>7</option>
+                         <option>13</option>
+                         <option>19</option>
+                         </select>
+                        </div>
+                        <div class="col-sm-3 mr-5">
+                            <label for="Typep" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Type du prix :</label>
+                            <select class="form-select" value="HT" id="country" style="font-size: small;" (change)="gettypep($event)" [(ngModel)]="product.typep" [ngModelOptions]="{standalone: true}" required>
+                          <option>HT</option>
+                          <option>TTC</option>
+                          </select>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-sm-4 mt-2">
+                            <label for="Typep" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Taxe appliquée :</label>
+                            <select class="form-select" id="country" style="font-size: small;" [(ngModel)]="product.typetaxe" [ngModelOptions]="{standalone: true}" required>
+                      <option>0</option>
+                      <option>fodec</option>
+                    </select>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                        </div>
+                        <div _ngcontent-kpi-c21="" class="col-md-4">
+                            <div _ngcontent-kpi-c26="" class="" style="background-color: rgba(242, 242, 242, 0.47); font-size: small; margin-top:5%;"><span _ngcontent-kpi-c26="" class="p-2 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        Résultat :</span><span _ngcontent-kpi-c26="">
+                        <p _ngcontent-kpi-c26=""><span _ngcontent-kpi-c26=""
+                                class="p-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{product.priceht}}&nbsp;EUR
+                                HT</span><br _ngcontent-kpi-c26=""><span _ngcontent-kpi-c26="" class="p-2" style="color: #0288d1">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {{product.pricettc}}&nbsp;EUR TTC</span></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <div class="row g-3 ">
+                        <div class="col-sm-4">
+                            <label for="refconst" style="font-size: small;color: lightslategrey;">Référence de constructeur :</label>
+                            <input type="number" style="font-size: small;" name="refconst " class="form-control " [(ngModel)]="product.refconst " [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="refint" style="font-size: small;color: lightslategrey;">Référence interne :</label>
+                            <input type="number" style="font-size: small;" name="refint" class="form-control" [(ngModel)]="product.refint " [ngModelOptions]="{standalone: true} " required>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class=" text-right ">
+                        <button type="button" style="font-size: small;" (click)="(annuler())" class="btn btn-warning mr-2 ">Annuler</button>
+                        <button class="btn btn-danger  mr-2" style="font-size: small;" (click)="deleteProduct(product.id)">Supprimer</button>
+                        <button type="submit" style="font-size: small;" class="btn btn-primary ">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

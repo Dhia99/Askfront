@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ASKUISINES</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/ASK.jpg">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <app-root></app-root>
+    <script>
+        console.log('aaaa');
+        setInterval(() => {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+        }, 2000);
+    </script>
+    <script>
+        console.log('aaaa');
+        setInterval(() => {
+            $("#myInput1").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        }, 2000);
+    </script>
+</body>
+
+</html>

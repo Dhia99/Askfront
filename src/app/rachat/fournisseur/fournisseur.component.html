@@ -1,0 +1,55 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-user mr-2"></i>Fournisseurs</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Recherche fournisseur" id="myInput">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <!--  -->
+                    <a class="btn btn-primary mb-2" style="color:white; font-size: small;" routerLink="addfourn">
+                        <i class="fas fa-plus mr-2"></i>Ajouter Fournisseur
+                    </a>
+                </div>
+                <table class="table" style="font-size: small; color:gray">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nom</th>
+                            <th>Identifiant</th>
+                            <th>N°Télephone</th>
+                            <th>Email</th>
+                            <th>Adress</th>
+                            <th style="width: 130px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr *ngFor="let f of fournisseurs">
+                            <th>{{f.id}}</th>
+                            <td>{{f.NOM}}</td>
+                            <td>{{f.IDENTIFIANT}}</td>
+                            <td>{{f.NTELEPHONE}}</td>
+                            <td>{{f.EMAIL}}</td>
+                            <td>{{f.ADRESSE}}</td>
+                            <td>
+                                <button type="button " class="btn btn-default btn-sm" style="font-size: small;" (click)="deleteFournisseur(f.id)"><i class="far fa-trash-alt "></i></button>
+                                <button type="button " class="btn btn-default btn-sm" style="font-size: small;" routerLink="editfourn/{{f.id}}"><i class=" far fa-edit"></i></button>
+                                <button type="button " class="btn btn-default btn-sm " style="font-size: small;" routerLink="fourndetails/{{f.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

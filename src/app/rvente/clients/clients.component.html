@@ -1,0 +1,54 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-user mr-2"></i>Clients</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Recherche client" id="myInput">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-tools -->
+            </div>
+            <div class="card-body">
+                <div>
+                    <!--  -->
+                    <a class="btn btn-primary mb-2" style="color:white;font-size: small;" routerLink="Addclient">
+                        <i class="fas fa-plus mr-2"></i>Ajouter Client
+                    </a>
+                </div>
+                <table class="table" style="font-size: small; color:gray;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nom</th>
+                            <th>Type</th>
+                            <th>N°Télephone</th>
+                            <th>Email</th>
+                            <th style="width: 130px; ">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr *ngFor="let c of clients ">
+                            <th>{{c.id}}</th>
+                            <td>{{c.name}}</td>
+                            <td>{{c.type}}</td>
+                            <td>{{c.ntelephone}}</td>
+                            <td>{{c.email}}</td>
+                            <td>
+                                <button type="button " class="btn btn-default btn-sm" style="font-size: small;" (click)=" deleteClient(c.id)"><i class="far fa-trash-alt "></i></button>
+                                <button type="button " class="btn btn-default btn-sm" style="font-size: small;" routerLink="Editclient/{{c.id}}"><i class=" far fa-edit "></i></button>
+                                <button type="button " class="btn btn-default btn-sm" style="font-size: small;" routerLink="clientDetails/{{c.id}}"><i class="far fa-eye "></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

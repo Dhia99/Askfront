@@ -1,0 +1,33 @@
+<div class="card text-center " style=" width: 25rem;height: 30rem;margin-top:10%;margin-left:35%;">
+    <header class=" text-white p-2 mb-2 mt-5 text-center ">
+        <img src="./assets/sksw.png">
+    </header>
+    <form (ngSubmit)="submit()" [formGroup]="form">
+        <div class="form-group" style="width: 16rem; margin-left:70px;">
+            <label for="email" style=" margin-left:0;">Email</label>
+            <input type="text" name="email" formControlName="email" class="form-control" placeholder="Entrez votre Email" [ngClass]="{ 'is-invalid' : submitted && f.email.errors}">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">
+                    Email Invalide !!!
+                </div>
+                <div *ngIf="f.email.errors.email">
+                    !!!!!
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style=" width: 16rem;margin-left:70px;">
+            <label for="password" style="margin-left:0;">Mot de Passe</label>
+            <input type="password" name="password" formControlName="password" class="form-control" placeholder="Entrez votre mot de passe" [ngClass]="{ 'is-invalid' : submitted && f.password.errors}">
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">
+                    Mot de passe Invalide!!!
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                    Il faut que le mot de passe avoir au moins 6 caractères
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm 4mt mb-2">Connexion</button>
+        <div><a href="Register" class="text-dark ml-2">N'est pas inscrit !</a></div>
+    </form>
+</div>

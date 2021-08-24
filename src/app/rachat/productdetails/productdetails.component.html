@@ -1,0 +1,85 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-box-open mr-2"></i>Details de {{product.name}}</h3>
+            </div>
+            <div class="card-body">
+                <div>
+                    <div class="col-sm-3">
+                        <label for="country" class="form-label mr-3" style="font-size: small;">Type de produit :</label>
+                        <h6>{{ product.type }}</h6>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="name" style="font-size: small;">Libellé :</label>
+                            <h6 style="font-size: small;">{{product.name}}</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="category" style="font-size: small;">Catégorie :</label>
+                            <h6 style="font-size: small;">{{product.category}}</h6>
+                        </div>
+                        <div class="col-sm-4" style="font-size: small;">
+                            <label for="category">Description :</label>
+                            <h6 style="font-size: small;">{{product.desc }}</h6>
+                        </div>
+                    </div>
+                    <div class="row g-3" style="font-size: small;">
+                        <div class="col-sm-4" style="font-size: small;">
+                            <label for="marque">Marque :</label>
+                            <h6 style="font-size: small;">{{product.marque}}</h6>
+                        </div>
+                        <div class="col-sm-4" style="font-size: small;">
+                            <label for="Enstock">Quantité en stock :</label>
+                            <h6 style="font-size: small;">({{product.Enstock}})</h6>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-md-4" style="font-size: small;">
+                            <label for="price">Prix public:</label>
+                            <h6 style="font-size: small;">{{product.pricev}}</h6>
+                        </div>
+                        <div class="col-md-4" style="font-size: small;">
+                            <label for="TVA">TVA(%):</label>
+                            <h6 style="font-size: small;">{{product.TVA}}</h6>
+                        </div>
+                        <div class="col-md-4" style="font-size: small;">
+                            <label for="TVA">Type Prix:</label>
+                            <h6 style="font-size: small;">{{product.typep}}</h6>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4" style="font-size: small;">
+                            <label for="TAXE">Taxe appliqué :</label>
+                            <h6 style="font-size: small;">{{product.typetaxe}}</h6>
+                        </div>
+                        <div class="col-md-4" style="font-size: small;">
+                            <label for="TAXE">Prix HT :</label>
+                            <h6 style="font-size: small;">{{product.priceht}}</h6>
+                        </div>
+                        <div class="col-md-4" style="font-size: small;">
+                            <label for="TAXE">Prix TTC:</label>
+                            <h6 style="font-size: small;">{{product.pricettc}}</h6>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3">
+                        <div class="col-sm-6" style="font-size: small;">
+                            <label for="refconst">Référence de constructeur :</label>
+                            <h6 style="font-size: small;">{{product.refconst}}</h6>
+                        </div>
+                        <div class="col-sm-6" style="font-size: small;">
+                            <label for="refint">Référence interne :</label>
+                            <h6 style="font-size: small;">{{product.refint}}</h6>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class=" text-right ">
+                        <button type="button" style="font-size: small;" (click)="(annuler())" class="btn btn-warning mr-2">Retour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

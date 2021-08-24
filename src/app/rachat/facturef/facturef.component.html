@@ -1,0 +1,188 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline card-outline shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-file-alt mr-2"></i>Facture Achat</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Recherche...">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div _ngcontent-auq-c14="" class="card">
+                    <!---->
+                    <div _ngcontent-auq-c14="" class="show-status row ml-3">
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="ml-4">TOTAL</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" class="primary" style="font-weight: 700; font-size:small;color: lightskyblue;">{{ttc}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <!---->
+                            <p _ngcontent-auq-c14="">
+                                <!---->
+                                <!----><b _ngcontent-auq-c14="" class="" style="font-size: small;"> {{ht}}&nbsp;EUR HT </b></p>
+                        </div>
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="ml-4">RÉGLÉES</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: green;"> {{reg}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <!---->
+                        </div>
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="">À RÉGLER</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small;color:red">{{areg}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <!---->
+                        </div>
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="">EN RETARD</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: palevioletred;"> {{sumRetard}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <!---->
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div>
+                    <a class="btn btn-primary mb-2" style="color:white;font-size: small;" routerLink="addfacf">
+                        <i class="fas fa-plus mr-2"></i>Creer Facture
+                    </a>
+                </div>
+                <table class="table" style="font-size: small;color: gray; ">
+                    <thead>
+                        <tr>
+                            <th>RÉFÉRENCE</th>
+                            <th>Date Creation</th>
+                            <th>Fournisseur</th>
+                            <th>Montant</th>
+                            <th>Etat</th>
+                            <th></th>
+                            <th style="width: 130px; ">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr *ngFor="let ff of facturef">
+                            <td>{{ff.Ref_Facture}}</td>
+                            <td>{{ff.date_creation}}</td>
+                            <td>{{ff.Nom_fournisseur}}</td>
+                            <td>{{ff.Montant_TTC}}</td>
+                            <td  [ngStyle]="{'color':getColor(ff.Etat)}">{{ff.Etat}}</td>
+                            <td></td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="payer(ff)" style="font-size: small;"><i class="fas fa-dollar-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="editfacf/{{ff.id}}"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="facfdetails/{{ff.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <p _ngcontent-auq-c14="" class="ml-4">Montant &nbsp; Total</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" class="primary ml-3"
+                                style="font-weight: 700; font-size:small;color: lightskyblue;">
+                                {{factureSelectionner.Montant_TTC}}&nbsp;EUR <span _ngcontent-auq-c14=""
+                                    style="font-weight: 400; font-size: small"></span></p>
+                        </div>
+
+                        <div class="col-md-4 ml-5">
+                            <p _ngcontent-auq-c14="" class="ml-4">Montant à &nbsp; &nbsp; &nbsp;
+                                payer</p>
+
+                                <p _ngcontent-auq-c14="" class="primary ml-5"
+                                style="font-weight: 700; font-size:small;color: rgb(135, 250, 135);">
+                                &nbsp; 
+                                <!-- {{p[0].paye}}  -->
+
+                                {{montantPayer}} EUR <span _ngcontent-auq-c14=""
+                                    style="font-weight: 400; font-size: small"></span></p>
+                        </div>
+                        <div class="col-md-3 ml-auto">
+                            <p _ngcontent-auq-c14="" class="ml-4">Reste à payer</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" class="primary ml-5"
+                                style="font-weight: 700; font-size:small;color:red;">
+                                &nbsp;
+                                <!-- {{p[0].reste}} -->
+                                {{factureSelectionner.Montant_TTC-montantPayer}} EUR <span _ngcontent-auq-c14=""
+                                    style="font-weight: 400; font-size: small"></span></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid mb-2">
+                    <div class="row ml">
+                        <div class="col-md-6">
+                            <label for="MP" style="font-size: small;color:lightslategrey">Montant à
+                                payer</label>
+                            <input type="text" style="font-size: small;" name="MP"
+                            [(ngModel)]="paiement.paye"
+                            class="form-control " required
+                            (change)="getmontantReste()">
+                             
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="RP" style="font-size: small;color:lightslategrey">Reste à
+                                payer:</label>
+                            <input type="text" style="font-size: small;"  
+                          
+                            [(ngModel)]="paiement.reste"
+                            name="RP" class="form-control " required disabled>
+                                  <!-- [(ngModel)]="p[0].reste"  [ngModelOptions]="{standalone: true}"-->
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="DP" style="font-size: small;color:lightslategrey">Date de
+                                règlement</label>
+                            <input type="date" style="font-size: small;" name="DP"  
+                            [(ngModel)]="paiement.date_reglement"
+                                class="form-control " required disabled>
+                                <!-- [(ngModel)]="p[0].date_reglement"  [ngModelOptions]="{standalone: true}" -->
+                        </div>
+                        <div class="col-md-6">
+                            <label for="DE" style="font-size: small;color:lightslategrey">Date
+                                d'échéance</label>
+                            <input type="date" style="font-size: small;" 
+                            [(ngModel)]="paiement.date_echenace"
+                                class="form-control "  required disabled>
+                                <!-- [(ngModel)]="p[0].date_echenace"  [ngModelOptions]="{standalone: true}"-->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        style="color:white;font-size: small;" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-success"
+                        style="color:white;font-size: small;" (click)="createPaiement()"
+                        data-dismiss="modal">Payer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

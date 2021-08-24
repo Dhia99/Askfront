@@ -1,0 +1,66 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-file-alt mr-2"></i>Details {{devis.Ref_Facture}}</h3>
+            </div>
+            <div class="card-body">
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="oten " style="font-size: small;color:lightslategrey ">Ref-Facture : {{devis.Ref_Facture}}</label></div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center">
+                    <div class="col-sm-4"> <label for="Fournisseur" style="font-size: small;color:lightslategrey">Client : {{devis.Nom_client}}</label>
+                    </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="name " style="font-size: small;color:lightslategrey ">Creé Le : {{devis.date_creation}}</label></div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "></div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="oten " style="font-size: small;color:lightslategrey ">Note : {{devis.note}}</label></div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "></div>
+                </div>
+                <hr class="my-4 ">
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Total HT : {{devis.Total_HT}}</label>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Total TVA : {{devis.Montant_TVA}}
+                </label>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Total TTC : {{devis.Montant_TTC}}
+                </label>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Timbre fiscale : {{devis.Timbre_fiscale}}</label>
+                    </div>
+                </div>
+                <div class="row gy-2 gx-3 align-items-center ">
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> </div>
+                    <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">NET A PAYER :{{Net}}</label>
+                    </div>
+                </div>
+                <hr class="my-4 ">
+                <div class=" text-right"> <button type="button " style="font-size: small; " class="btn btn-warning ml-5" (click)="annuler()">Retour</button>
+                </div>
+            </div>
+        </div>

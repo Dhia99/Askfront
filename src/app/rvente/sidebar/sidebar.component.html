@@ -1,0 +1,109 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="/rvente" class="brand-link" style="height:100px;">
+        <img src="./assets/ASK.jpg" class=" rounded-circle " style="height:70px;width:60px;">
+        <span class="brand-text font-weight-light" style="font-size: x-large;"> ASKUISINES</span>
+    </a>
+    <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition">
+        <div class="os-resize-observer-host">
+            <div class="os-resize-observer observed" style="left: 0px; right: auto;"></div>
+        </div>
+        <div class="os-size-auto-observer" style="height: calc(100% + 1px); float: left;">
+            <div class="os-resize-observer observed"></div>
+        </div>
+        <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 729px;"></div>
+        <div class="os-padding">
+            <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
+                <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="image">
+                            <i class="nav-icon- fas fa-user-edit mt-2 ml-2" style="color: white;font: x-large;"></i>
+                        </div>
+                        <div class="info mr-4">
+                            <a href="rvente/RespCompte" class="d-block">{{name}}</a>
+                        </div>
+                    </div>
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item has-treeview">
+                                <a routerLink="/rvente" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+                                    <i class=" nav-icon fas fa-home"></i>
+                                    <p>
+                                        Accueil
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview">
+                                <a routerLinkActive="active" class="nav-link">
+                                    <i class="nav-icon fas fa-shopping-cart "></i>
+                                    <p>
+                                        Vente
+                                        <i class="right fas fa-angle-double-right "></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview" style="display: none; ">
+                                    <li class="nav-item">
+                                        <a routerLink="vente/Devis" routerLinkActive="active" class="nav-link">
+                                            <i class="far fa-file-alt mr-2"></i>
+                                            <p>Devis</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a routerLink="vente/CommandeCl" routerLinkActive="active" class="nav-link">
+                                            <i class="far fa-file-alt mr-2"></i>
+                                            <p>Commande Client</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a routerLink="vente/Bonlivraison" routerLinkActive="active" class="nav-link">
+                                            <i class="far fa-file-alt mr-2"></i>
+                                            <p>Bon de Livraison</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a routerLink="vente/Facture" routerLinkActive="active" class="nav-link">
+                                            <i class="far fa-file-alt mr-2"></i>
+                                            <p>Facture</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a routerLink="vente/Bonsortie" routerLinkActive="active" class="nav-link">
+                                            <i class="far fa-file-alt mr-2"></i>
+                                            <p>Bon de Sortie</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview ">
+                                <a routerLink="Clients" routerLinkActive="active" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Clients
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item has-treeview ">
+                                <a routerLink="Products" routerLinkActive="active" class="nav-link">
+                                    <i class="nav-icon fas fa-box-open"></i>
+                                    <p>
+                                        Produits
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden ">
+            <div class="os-scrollbar-track ">
+                <div class="os-scrollbar-handle " style="width: 100%; transform: translate(0px, 0px); "></div>
+            </div>
+        </div>
+        <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden ">
+            <div class="os-scrollbar-track ">
+                <div class="os-scrollbar-handle " style="height: 64.5447%; transform: translate(0px, 0px); "></div>
+            </div>
+        </div>
+        <div class="os-scrollbar-corner "></div>
+    </div>
+</aside>

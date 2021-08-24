@@ -1,0 +1,80 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-box-open mr-2"></i>Produits</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Recherche produit" id="myInput">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div _ngcontent-auq-c14="" class="card">
+                    <!---->
+                    <div _ngcontent-auq-c14="" class="show-status row ml-3">
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="" style="color: palevioletred;">Article/Service</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: palevioletred;">{{nbprod[0]}}&nbsp; <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">Produits</span></p>
+                            <!---->
+                        </div>
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="" style="color: lightskyblue;">Prix Public</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" class="primary" style="font-weight: 700; font-size:small;color: lightskyblue;"> {{public}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small"></span></p>
+                            <!---->
+                            <p _ngcontent-auq-c14="">
+                                <!---->
+                        </div>
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="ml-4" style="color: green;">Prix HT</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small; color: green;">{{ht}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">HT</span></p>
+                            <!---->
+                        </div>
+                        <div _ngcontent-auq-c14="" class="col-lg-3 col-12">
+                            <p _ngcontent-auq-c14="" class="" style="color:royalblue;">Prix TTC</p>
+                            <!---->
+                            <p _ngcontent-auq-c14="" style="font-weight: 700; font-size:small;color:royalblue">{{ttc}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small">TTC</span></p>
+                            <!---->
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <table class="table" style="font-size: small; color:gray">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Libellé</th>
+                            <th>Type</th>
+                            <th>Categorie</th>
+                            <th>Marque</th>
+                            <th>Prix</th>
+                            <th style="width: 130px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr *ngFor="let p of products">
+                            <th>{{p.id}}</th>
+                            <td>{{p.name}}</td>
+                            <td>{{p.type}}</td>
+                            <td>{{p.category}}</td>
+                            <td>{{p.marque}}</td>
+                            <td>{{p.pricev}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="ProductDetails/{{p.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

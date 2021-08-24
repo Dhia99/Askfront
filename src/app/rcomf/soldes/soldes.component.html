@@ -1,0 +1,124 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg">
+            <div class="card-header">
+                <h3 class="card-title"> <i class="fas fa-wallet mr-2"></i>Solde secondaire</h3>
+                <div class="card-tools">
+                </div>
+            </div>
+            <div class="card-body">
+                <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: small;">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#vuee" role="tab" aria-controls="home" aria-selected="true">VUE D'ENSEMBLE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">REMISE EN BANQUE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reg" role="tab" aria-controls="contact" aria-selected="false">RÈGLEMENT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#eo" role="tab" aria-controls="contact" aria-selected="false">ENREGISTRER L'OPÉRATION</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="vuee" role="tabpanel" aria-labelledby="home-tab">
+                        <table class="table" style="font-size: small;color: gray;">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th></th>
+                                    <th>Type</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Valorisation</th>
+                                    <th></th>
+                                    <th style="width: 130px;font-size: small;">
+                                        <div>
+                                            <!--  -->
+                                            <a class="btn btn-primary mb-2" routerLink="addep2" style="color:white; font-size: small;">
+                                                <i class="fas fa-plus mr-2 "></i>Ajouter Dépense
+                                            </a>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                    </div>
+                    <div class="tab-pane fade" id="reg" role="tabpanel" aria-labelledby="contact-tab">
+                        <table class="table" style="font-size: small;color: gray;">
+                            <thead>
+                                <tr>
+                                    <th>DATE</th>
+                                    <th>LIBELLÉ</th>
+                                    <th>DOCUMENT</th>
+                                    <th>DÉBIT/DÉPENSE</th>
+                                    <th>CRÉDIT/RECETTE</th>
+                                    <th style="width: 130px;">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade mt-4" id="eo" role="tabpanel" aria-labelledby="contact-tab">
+                        <form>
+                            <div class="row gy-2 gx-3 align-items-center">
+                                <div class="col-sm-4">
+                                    <label for="country" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Type de paiement :</label>
+                                    <select class="form-select" id="country" style="font-size: small;" required>
+                          <option>Débit</option>
+                          <option>Crédit</option>
+                        </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="country" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Mode de paiement                                      :</label>
+                                    <select class="form-select" id="country" style="font-size: small;" required>
+                       <option>Espèces</option>
+                       <option>Chèque</option>
+                     </select>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="row gy-2 gx-3 align-items-center">
+                                <div class="col-sm-4">
+                                    <label for="category" style="font-size: small;color: lightslategrey;">Catégorie :</label>
+                                    <input type="text" name="category" class="form-control" style="font-size: small;" required>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="row gy-2 gx-3 align-items-center">
+                                <div class="col-sm-4">
+                                    <label for="montant" style="font-size: small;color: lightslategrey;">Montant :</label>
+                                    <input type="number" name="montant" class="form-control" style="font-size: small;" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="Dr" style="font-size: small;color: lightslategrey;">Date de règlement :</label>
+                                    <input type="date" name="Dr" style="font-size: small;" class=" form-control" required>
+                                </div>
+                            </div>
+                            <hr class="my-4 ">
+                            <div class="row g-3 ">
+                                <div class="col-md-4">
+                                    <label for="note" style="font-size: small;color: lightslategrey;">Note:</label>
+                                    <textarea class="form-control" style="font-size: small;" requiredcols="60">
+                                  </textarea>
+                                </div>
+                            </div>
+                            <hr class="my-4 ">
+                            <div class=" text-right ">
+                                <button type="button " style="font-size: small; " class="btn btn-danger mr-2 ">Annuler</button>
+                                <button type="submit " style="font-size: small; " class=" btn btn-primary ">Enregistrer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>

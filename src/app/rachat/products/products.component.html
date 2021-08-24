@@ -1,0 +1,55 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-box-open mr-2"></i>Produits</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Recherche produit" id="myInput">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <!--  -->
+                    <a class="btn btn-primary mb-2" style="color:white; font-size: small;" routerLink="Addproduct">
+                        <i class="fas fa-plus mr-2"></i>Ajouter Produit
+                    </a>
+                </div>
+                <table class="table" style="font-size: small; color:gray">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Libellé</th>
+                            <th>Type</th>
+                            <th>Categorie</th>
+                            <th>Marque</th>
+                            <th>Prix</th>
+                            <th style="width: 130px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                        <tr *ngFor="let p of products">
+                            <th>{{p.id}}</th>
+                            <td>{{p.name}}</td>
+                            <td>{{p.type}}</td>
+                            <td>{{p.category}}</td>
+                            <td>{{p.marque}}</td>
+                            <td>{{p.pricev}}</td>
+                            <td>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" (click)="deleteProduct(p.id)"><i class="far fa-trash-alt"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="Editproduct/{{p.id}}"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-default btn-sm" style="font-size: small;" routerLink="ProductDetails/{{p.id}}"><i class="far fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

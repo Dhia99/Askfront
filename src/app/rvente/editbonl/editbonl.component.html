@@ -1,0 +1,77 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-file-alt mr-2"></i>Modifier {{bonl.Ref_Facture}}</h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row gy-2 gx-3 align-items-center">
+                        <div class="col-sm-4"> <label for="Fournisseur" style="font-size: small;color:lightslategrey">Client : {{bonl.Nom_client}}</label>
+                        </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="name " style="font-size: small;color:lightslategrey ">Creé
+                        Le :</label> <input type="date " style="font-size: small; " name="date_creation " class="form-control " [(ngModel)]="bonl.date_creation " [ngModelOptions]="{standalone: true} " required> </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "></div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="oten " style="font-size: small;color:lightslategrey ">Note
+                        :</label> <input type="text " style="font-size: small; " name="note " class="form-control " [(ngModel)]="bonl.note " [ngModelOptions]="{standalone: true} " required> </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="name " style="font-size: small;color:lightslategrey ">Délai de Livraison :</label> <input type="date " style="font-size: small; " name="date_echeance " class="form-control " [(ngModel)]="bonl.date_echeance
+                        " [ngModelOptions]="{standalone: true} " required>
+                        </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "> <label for="produit " style="font-size: small;color:lightslategrey ">Timbre fiscale :</label> <input type="number " style="font-size: small; " name="timbre fiscale " class="form-control " [(ngModel)]="bonl.Timbre_fiscale
+                        " [ngModelOptions]="{standalone: true} " required> </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Total HT : {{bonl.Total_HT}}</label>
+                        </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Total TVA : {{bonl.Montant_TVA}}
+                </label>
+                        </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Total TTC :{{bonl.Montant_TTC}}
+                </label>
+                        </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">Timbre fiscale : {{bonl.Timbre_fiscale}}</label>
+                        </div>
+                    </div>
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> </div>
+                        <div class="col-sm-4 "> <label for="prix " style="font-size: small; ">NET A PAYER : {{Net}}</label>
+                        </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class="row g-3 ">
+                        <div class="col-sm-4 "> <label for="Ref_Facture " style="font-size: small;color:lightslategrey ">Réference Commande</label> <input type="text " name="Ref_Facture " class="form-control " [(ngModel)]="bonl.Ref_Facture" [ngModelOptions]="{standalone: true} "
+                                required> </div>
+                        <div class="col-sm-4 ">
+                        </div>
+                        <div class=" col-sm-4 "> <label for="Ref_Facture " style="font-size: small;color:lightslategrey ">Etat</label> <input type="text " name="Ref_Facture " class="form-control " [(ngModel)]="bonl.Etat" [ngModelOptions]="{standalone: true} " required> </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class=" text-right "> <button type="button " style="font-size: small; " class="btn btn-danger mr-2 " (click)="annuler()">Annuler</button> <button type="submit " style="font-size: small; " class="btn btn-primary " (click)="updatecommcl()">Enregistrer</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

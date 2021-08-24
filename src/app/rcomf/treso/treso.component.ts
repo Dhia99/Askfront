@@ -1,0 +1,67 @@
+import { Component, OnInit } from '@angular/core';
+import { depenseService } from 'src/app/services/depense.service';
+import { operationService } from 'src/app/services/opeartion.service';
+import { PaiementService } from 'src/app/services/paiement.service';
+import { PaiementcService } from 'src/app/services/paiementc.service';
+
+@Component({
+  selector: 'app-treso',
+  templateUrl: './treso.component.html',
+  styleUrls: ['./treso.component.css']
+})
+export class TresoComponent implements OnInit {
+  mp:any;
+  reg:any;
+  areg:any;
+  mp1:any;
+  reg1:any;
+  areg1:any;
+  treso:any;
+  op:any;
+  dep:any;
+  constructor(private depenseservice:depenseService,private paiementService1:PaiementService,private paiementService:PaiementcService,private operationservice:operationService) { }
+
+  ngOnInit(): void {
+    this.gettreso();
+  }
+gettreso(){
+    this.paiementService.getData().subscribe(res=>{
+    this.mp=res;
+    this.reg=0;
+    this.areg=0;
+    console.log("Vente");
+    for (var i = 0;i <this.mp.length; i++) {
+     this.reg+=this.mp[i].paye;
+     console.log(this.reg);
+     }
+    });
+    this.paiementService1.getData().subscribe(res=>{
+      this.mp1=res;
+      this.reg1=0;
+      this.areg1=0;
+      console.log("achat");
+      for (var i = 0;i <this.mp1.length; i++) {
+       this.reg1+=this.mp1[i].paye;
+       console.log(this.reg1);
+       this.treso=this.reg-this.reg1;
+       }
+      });
+      this.operationservice.getData().subscribe(res=>{
+        this.op=res;
+        for (var i = 0;i <this.op.length; i++){
+          if (this.op[i].typep=="Crédit"){
+            this.treso+=this.op[i].montant;
+          }else{
+            this.treso-=this.op[i].montant;
+          }
+        }
+      })
+      this.depenseservice.getData().subscribe(res=>{
+        this.dep=res;
+        for(var i=0;i<this.dep.length;i++){
+          this.treso-=this.dep[i].montant;
+        }
+      })
+
+}
+}

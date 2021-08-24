@@ -1,0 +1,100 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg">
+            <div class="card-header">
+                <h3 class="card-title"> <i class="fas fa-money-check-alt mr-2"></i>Chèque Et Traite</h3>
+                <div class="card-tools">
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div>
+                        <!--  -->
+                        <a class="btn btn-primary mb-2" style="color:white; font-size: small;" routerLink="addchtr">
+                            <i class="fas fa-plus mr-2 "></i>Ajouter
+                        </a>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-2 ">
+                            <label for="type " class="form-label mr-3 " style="color: lightslategrey ; font-size:small; ">Type date :</label><br>
+                            <select class="form-select " id="country " style="font-size:small; " required>
+                        <option>Date</option>
+                        <option>Date d'échéance</option>
+                         </select>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <label for="type" class="form-label mr-3 " style="color: lightslategrey ; font-size:small; ">Méthode de paiement :</label><br>
+                            <select class="form-select " id="country " style="font-size:small; " required>
+                        <option>Reçus</option>
+                        <option>Émis</option>
+                         </select>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="type" class="form-label mr-3 " style="color: lightslategrey ; font-size:small; ">Type de paiement :</label><br>
+                            <select class="form-select " id="country " style="font-size:small; " required>
+                      <option>Chéque</option>
+                      <option>Traite</option>
+                       </select>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="type" class="form-label mr-3 " style="color: lightslategrey ; font-size:small; ">Choisir compte :</label><br>
+                            <select class="form-select " id="country " style="font-size:small; " required>
+                    <option></option>
+                    <option>pas compte</option>
+                     </select>
+                        </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-2 ">
+                            <label for="name" style="color: lightslategrey ; font-size:small; ">Date début :</label>
+                            <input type="date" name="name" class="form-control " style="font-size:small; " required>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="name" style="color: lightslategrey ; font-size:small; ">Mot clé :</label>
+                            <input type="text" name="name" class="form-control mr- " style="font-size:small; " required>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="type" class="form-label mr-3 " style="color: lightslategrey ; font-size:small; ">Paiement :</label><br>
+                            <select class="form-select" id="country " style="font-size:small; " required>
+                            <option>Tous</option>
+                            <option>En retard</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <label for="type" class="form-label mr-3" style="color: lightslategrey ; font-size:small; ">Type de transaction :</label><br>
+                            <select class="form-select" id="country" style="font-size:small; " required>
+                            <option>Tous</option>
+                            <option>Payé</option>
+                            <option>Non Payé</option>
+                            <option>En cours</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class=" text-right ">
+                        <button type="button " style="font-size: small; " class="btn btn-primary mr-2 " routerLink=" ">Réinitialiser</button>
+                        <button type="submit " style="font-size: small; " class="btn btn-primary ">Filtrer</button>
+                    </div>
+                </form>
+                <hr class="my-4 ">
+                <table class="table" style="font-size: small;color:gray">
+                    <thead>
+                        <tr>
+                            <tr>
+                                <th>NUMÉRO</th>
+                                <th>PORTEUR</th>
+                                <th>BANQUE</th>
+                                <th>DATE DU RÉGLEMENT</th>
+                                <th>DATE D'ÉCHÉANCE</th>
+                                <th>MONTANT</th>
+                                <th>ÉTAT</th>
+                                <th style="width: 130px; ">ACTION</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>

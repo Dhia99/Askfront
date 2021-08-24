@@ -1,0 +1,34 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg">
+            <div class="card-header">
+                <h3 class="card-title"> <i class="fas fa-chart-line mr-2"></i>Balance Fournisseur</h3>
+                <div class="card-tools">
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table" style="font-size: small; color: gray;">
+                    <thead>
+                        <tr>
+                            <th>RÉFÉRENCE</th>
+                            <th>CLIENT</th>
+                            <th>CUMUL DEBIT</th>
+                            <th>CUMUL CRÉDIT</th>
+                            <th>SOLDE DÉBIT</th>
+                            <th>SOLDE CRÉDIT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p1 of p">
+                            <td>{{p1.reffact}}</td>
+                            <td>{{p1.fournisseur}}</td>
+                            <td style="color:red;">{{p1.reste}}</td>
+                            <td style="color: forestgreen;">{{p1.paye}}</td>
+                            <td style="color:red;">{{p1.reste+p1.paye}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,65 @@
+<div style="padding: 2%;">
+    <div class="col-lg-12">
+        <div class="card card-primary card-outline shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header">
+                <h3 class="card-title"><i class="nav-icon fas fa-user mr-2"></i>Ajouter Client</h3>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="insertClientData()">
+                    <div class="row gy-2 gx-3 align-items-center">
+                        <div class="col-sm-4">
+                            <label for="country" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Type du Client :</label>
+                            <select class="form-select" id="country" style="font-size: small;" [(ngModel)]="client.type" [ngModelOptions]="{standalone: true}" required>
+                              <option>particulier</option>
+                              <option>professionel</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="country" class="form-label mr-3" style="font-size: small;color: lightslategrey;">Civilité :</label>
+                            <select class="form-select" id="country" style="font-size: small;" [(ngModel)]="client.civilite" [ngModelOptions]="{standalone: true}" required>
+                           <option>M</option>
+                           <option>Mme</option>
+                         </select>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row gy-2 gx-3 align-items-center">
+                        <div class="col-sm-4">
+                            <label for="name" style="font-size: small;color: lightslategrey;">Nom Complet :</label>
+                            <input type="text" name="name" style="font-size: small;" class="form-control" [(ngModel)]="client.name" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="email" style="font-size: small;color: lightslategrey;">Email :</label>
+                            <input type="email" name="email" class="form-control" style="font-size: small;" [(ngModel)]="client.email" [ngModelOptions]="{standalone: true}" required>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="adress" style="font-size: small;color: lightslategrey;">Adress :</label>
+                            <input type="text" name="adress" style="font-size: small;" class="form-control" [(ngModel)]="client.adress " [ngModelOptions]="{standalone: true} " required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ntelephone" style="font-size: small;color: lightslategrey;">N°Télephone :</label>
+                            <input type="number" name="matfiscale" style="font-size: small;" class="form-control " [(ngModel)]="client.ntelephone" [ngModelOptions]="{standalone: true} " required>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row g-3 ">
+                        <div class="col-sm-4">
+                            <label for="raisonsociale" style="font-size: small;color: lightslategrey;">Raison Sociale :</label>
+                            <input type="number " name="raisonsociale" style="font-size: small;" class="form-control " [(ngModel)]="client.raisonsociale" [ngModelOptions]="{standalone: true} " required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="matfiscale" style="font-size: small;color: lightslategrey;">Matricule fiscale :</label>
+                            <input type="number" name="matfiscale" style="font-size: small;" class="form-control " [(ngModel)]="client.matfiscale" [ngModelOptions]="{standalone: true} " required>
+                        </div>
+                    </div>
+                    <hr class="my-4 ">
+                    <div class=" text-right ">
+                        <button type="button " style="font-size: small; " (click)=" (annuler()) " class="btn btn-danger mr-2 ">Annuler</button>
+                        <button type="submit " style="font-size: small; " class=" btn btn-primary ">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
