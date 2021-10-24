@@ -7,6 +7,7 @@ import { ClientsService } from 'src/app/services/clients.service';
 import { ProductService } from 'src/app/services/product.service';
 import { devisService } from 'src/app/services/devis.service';
 import { ListProductv } from 'src/app/models/Listproductv.model';
+import {formatDate} from '@angular/common';
 @Component({
   selector: 'app-adddevis',
   templateUrl: './adddevis.component.html',
@@ -41,10 +42,12 @@ export class AdddevisComponent implements OnInit {
     this.Devis.Timbre_fiscale=0.6;
     this.getProductsData()
     this.getproduits();
+    this.Devis.Total_HT=0;
     this.Devis.Montant_TTC=0;
     this.Devis.Montant_TTC=0;
     this.Devis.note="pas de note";
-    this.Devis.Ref_Facture="dev-"
+    this.Devis.Ref_Facture="dev-";
+    this.Devis.date_creation=formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
   add(){
     let dev = new Devismodel();

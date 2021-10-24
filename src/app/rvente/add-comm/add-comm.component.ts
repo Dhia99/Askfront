@@ -3,10 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { clientModel } from 'src/app/models/clients.model';
 import { Commclmodel } from 'src/app/models/commcl.model';
-import { ListProduct } from 'src/app/models/Listproduct.model';
 import { ClientsService } from 'src/app/services/clients.service';
 import { commandeclService } from 'src/app/services/comc.service';
 import { ProductService } from 'src/app/services/product.service';
+import {formatDate} from '@angular/common';
+import { ListProductv } from 'src/app/models/Listproductv.model';
 @Component({
   selector: 'app-add-comm',
   templateUrl: './add-comm.component.html',
@@ -39,10 +40,12 @@ export class AddCommComponent implements OnInit {
     this.commcl.Timbre_fiscale=0.6;
     this.getProductsData()
     this.getproduits();
+    this.commcl.Total_HT=0;
     this.commcl.Montant_TTC=0;
     this.commcl.Montant_TVA=0;
     this.commcl.note="pas de note";
-    this.commcl.Ref_Facture="comm-"
+    this.commcl.Ref_Facture="comm-";
+    this.commcl.date_creation=formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
   add(){
     let comm = new Commclmodel();
@@ -60,12 +63,12 @@ export class AddCommComponent implements OnInit {
       this.commcl.Nom_client=this.f[this.index_client].name
       this.commcl.id_client=this.f[this.index_client].id
       this.commcl.quantite_entre=999;
-      let listvente: Array<ListProduct> = new Array();
+      let listvente: Array<ListProductv> = new Array();
       for (var i = 0; i < this.listProduct.length; i++) {
-        let product = new ListProduct();
+        let product = new ListProductv();
         product.quantite=this.listProduct[i].quantite_entre;
-        product.id_product=this.listProduct[i].id;
-        product.Libelle=this.listProduct[i].Libelle;
+        product.id_product=this.listProduct[i].produit.id;
+        product.Libelle=this.listProduct[i].produit.name;
         listvente.push(product);
       }
       this.commcl.ListProductv=listvente;

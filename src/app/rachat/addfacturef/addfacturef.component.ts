@@ -7,6 +7,8 @@ import { ListProduct } from 'src/app/models/Listproduct.model';
 import { FacturesService } from 'src/app/services/facturef.service';
 import { FournisseursService } from 'src/app/services/fournisseurs.service';
 import { ProductService } from 'src/app/services/product.service';
+import { Paiement } from 'src/app/models/paiement';
+import { PaiementService } from 'src/app/services/paiement.service';
 import {formatDate} from '@angular/common';
 
 @Component({
@@ -36,19 +38,23 @@ export class AddfacturefComponent implements OnInit {
   prod: any;
   facturefournisseur: FournisseurFacture[] = [new FournisseurFacture()];
   myDate = new Date();
-  constructor(private route: ActivatedRoute, private router: Router, private toastr: ToastrService, private factureService: FacturesService, private productService: ProductService, private four: FournisseursService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private toastr: ToastrService, private factureService: FacturesService, private productService: ProductService, private four: FournisseursService, private paiement: PaiementService) { }
   ngOnInit(): void {
+
     this.getfournisseur();
     this.facture.Timbre_fiscale = 0.6;
     this.getFactureData()
     this.getproduits();
     this.facture.Montant_TTC = 0;
     this.facture.Montant_TVA = 0;
-    this.facture.note="pas de note";
+    this.facture.Total_HT=0;
     this.facture.date_creation=formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.facture.note="pas de note";
+    this.facture.Ref_Facture="Fac-"
     console.log("-----",this.facture.date_creation);
-    this.facture.Ref_Facture="fac-";
   }
+
+
   add() {
     let fact = new FournisseurFacture();
     this.facturefournisseur.push(fact);
@@ -59,6 +65,7 @@ export class AddfacturefComponent implements OnInit {
     });
   }
   insertData() {
+
     console.log(this.facture);
     this.facture.Etat = "non payé";
     this.facture.Timbre_fiscale = 0.6;
@@ -70,30 +77,40 @@ export class AddfacturefComponent implements OnInit {
   let listAchat: Array<ListProduct> = new Array();
     for (var i = 0; i < this.facturefournisseur.length; i++) {
       let product = new ListProduct();
+
       console.log("##++",this.facturefournisseur[i].product);
       product.quantite = this.facturefournisseur[i].quantite_entre;
       product.id_product = this.facturefournisseur[i].produit.id;
       product.Libelle = this.facturefournisseur[i].produit.name;
+
       listAchat.push(product);
     }
     this.facture.ListProduct = listAchat;
     this.factureService.insertData(this.facture).subscribe(res => {
-    this.router.navigate(['rachat/achat/facturef']);
-    this.toastr.success('', 'Facture Enregistrée');
+      this.router.navigate(['rachat/achat/facturef']);
+      this.toastr.success('', 'Facture Enregistrée');
     });
+
+
     // let paiementt = new Paiement();
     // paiementt.paye="0";
     // paiementt.reste=this.facture.Montant_TTC;
     // paiementt.montant=this.facture.Montant_TTC
     // paiementt.date_echenace=this.facture.date_echeance;
     // paiementt.date_reglement=this.facture.date_creation;
+
     // this.paiement.insertData(paiementt).subscribe(res=>{
+
+
+
+
     // });
 
   }
   getproduits() {
     this.productService.getData().subscribe(res => {
-    this.products = res;
+      this.products = res;
+
     });
   }
   getfournisseur() {

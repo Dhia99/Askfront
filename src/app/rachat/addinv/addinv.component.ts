@@ -2,55 +2,44 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Inventairemodel } from 'src/app/models/inventaire.model';
-import { productInv } from 'src/app/models/productin.model';
 import { InventaireserviceService } from 'src/app/services/inventaireservice.service';
 import { ProductService } from 'src/app/services/product.service';
-
+import {formatDate} from '@angular/common';
 @Component({
   selector: 'app-addinv',
   templateUrl: './addinv.component.html',
   styleUrls: ['./addinv.component.css']
 })
 export class AddinvComponent implements OnInit {
-products: any;
-inv=new Inventairemodel();
-productInv:Inventairemodel [] = [new Inventairemodel()];
+  inv = new Inventairemodel();
+  p: any;
+  index_produit: any;
+  products:any;
+  qte:any;
   constructor(private route:ActivatedRoute,private router:Router,private toastr: ToastrService,private invservice:InventaireserviceService,private productService:ProductService) { }
-
   ngOnInit(): void {
-    this.addinv();
+    this.getProductsData();
+    this.inv.Enstock=0;
+    this.inv.quantite=0;
+    this.inv.valeuru=0;
+    this.inv.note="pas de note";
+    this.inv.date_creation=formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
-  add(){
-    let inv = new Inventairemodel();
-    this.productInv.push(inv);
-  }
-  addinv(){
-    let listinv: Array<productInv> = new Array();
-      for (var i = 0; i < this.productInv.length; i++) {
-        let product = new productInv();
-        product.Enstock=this.productInv[i].Enstock;
-        product.id_product=this.productInv[i].id;
-        product.Libelle=this.productInv[i].Libelle;
-        listinv.push(product);
-      }
-      this.invservice.insertData(this.inv).subscribe(res=>{
-      this.router.navigate(['rachat/inventaire']);
-      this.toastr.success('', 'Iventaire Enregistré');
-    })
-  }
-  getSelecteItem(prod:any) {
-    this.productService.getProductById(prod.id_product).subscribe(res => {
-    prod.product=res;
-    console.log(prod);
+  insertData(){
+    this.inv.Libelle = this.p[this.index_produit].name
+    this.inv.id_product = this.p[this.index_produit].id
+    this.inv.Enstock = this.p[this.index_produit].Enstock
+    this.invservice.insertData(this.inv).subscribe(res => {
+    this.router.navigate(['rachat/inventaire']);
+    this.toastr.success('', 'Inventaire ajouté');
     });
   }
-  getq(prod:any) {
-    let qte=prod.quantite_entre;
-    prod.Montant_TVA=((prod.product.priceht*prod.product.TVA)/100)*qte;
-    prod.Taxe_Applique=prod.product.typetaxe;
-    prod.Montant_TTC=qte*prod.product.pricettc;
-    prod.Total_HT=qte*prod.product.priceht;
-}
+  getProductsData(){
+    this.productService.getData().subscribe(res=>{
+    this.products=res;
+    });
+  }
+
   annuler(){
     this.router.navigate(['rachat/inventaire']);
     this.toastr.error('', 'Annulation');

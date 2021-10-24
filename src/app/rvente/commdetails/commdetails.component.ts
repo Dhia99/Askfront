@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ClientsService } from 'src/app/services/clients.service';
 import { commandeclService } from 'src/app/services/comc.service';
 import { ProductService } from 'src/app/services/product.service';
-
+declare var export_pdf:any;
 @Component({
   selector: 'app-commdetails',
   templateUrl: './commdetails.component.html',
@@ -18,6 +18,9 @@ Net:any;
   ngOnInit(): void {
     this.id=this.route.snapshot.params.id;
     this.getcommc();
+  }
+  export(){
+    export_pdf();
   }
   getcommc(){
     this.cmdService.getcommclById(this.id).subscribe(res=>{

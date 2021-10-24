@@ -7,7 +7,7 @@ import { ListProduct } from 'src/app/models/Listproduct.model';
 import { bonlService } from 'src/app/services/bonl.service';
 import { ClientsService } from 'src/app/services/clients.service';
 import { ProductService } from 'src/app/services/product.service';
-
+import {formatDate} from '@angular/common';
 @Component({
   selector: 'app-addbonl',
   templateUrl: './addbonl.component.html',
@@ -40,10 +40,12 @@ export class AddbonlComponent implements OnInit {
     this.bonl.Timbre_fiscale=0.6;
     this.getProductsData()
     this.getproduits();
+    this.bonl.Total_HT=0;
     this.bonl.Montant_TTC=0;
     this.bonl.Montant_TVA=0;
     this.bonl.note="pas de note";
-    this.bonl.Ref_Facture="bonl-"
+    this.bonl.Ref_Facture="bonl-";
+    this.bonl.date_creation=formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
   add(){
     let bl = new Bonlivraisonmodel();

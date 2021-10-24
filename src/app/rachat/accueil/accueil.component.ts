@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { dashboardService } from 'src/app/services/dashboard.service';
 import { FacturesService } from 'src/app/services/facturef.service';
 import { FournisseursService } from 'src/app/services/fournisseurs.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -15,10 +16,12 @@ export class AccueilComponent implements OnInit {
   nf:any;
   facturef:any
   Net:any;
-  constructor(private ProductService:ProductService,private fournisseurService:FournisseursService,private factureService: FacturesService) { }
+  stat:any;
+  constructor(private ProductService:ProductService,private fournisseurService:FournisseursService,private factureService: FacturesService,private dashboardservice:dashboardService) { }
   ngOnInit(): void {
     this.get();
     this.getfacturefdata();
+    this.statva();
   }
   get(){
     this.ProductService.getNumberProduct().subscribe(a=>{
@@ -41,5 +44,10 @@ getColor(etat:any) {
       return 'red';
   }
   return 'red';
+}
+statva(){
+  this.dashboardservice.getstatva().subscribe(res=>{
+  this.stat=res;
+  })
 }
 }

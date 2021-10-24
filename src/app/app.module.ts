@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AccComponent } from './acc/acc.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginAComponent } from './login-a/login-a.component';
+import { LogincComponent } from './loginc/loginc.component';
 
 
 
@@ -19,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterComponent,
     AccComponent,
+    LoginAComponent,
+    LogincComponent,
   ],
   imports: [
     BrowserModule,

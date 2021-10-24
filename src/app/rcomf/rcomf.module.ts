@@ -20,6 +20,7 @@ import { SoldepComponent } from './soldep/soldep.component';
 import { SoldesComponent } from './soldes/soldes.component';
 import { Adddep1Component } from './adddep1/adddep1.component';
 import { Adddep2Component } from './adddep2/adddep2.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { Adddep2Component } from './adddep2/adddep2.component';
     FormsModule,
     HttpClientModule,
     RouterModule,
+    ChartsModule
   ]
 })
 export class RcomfModule { }

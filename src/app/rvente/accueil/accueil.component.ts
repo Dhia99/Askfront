@@ -3,6 +3,7 @@ import { ClientsService } from 'src/app/services/clients.service';
 import { ProductService } from 'src/app/services/product.service';
 import { clientModel } from 'src/app/models/clients.model';
 import { factureService } from 'src/app/services/facture.service';
+import { dashboardService } from 'src/app/services/dashboard.service';
 
 
 @Component({
@@ -14,11 +15,13 @@ export class AccueilComponent implements OnInit {
   nbprod: any;
   nbclt: any;
   facture:any;
-  constructor(private ProductService:ProductService,private factService: factureService) { }
+  stat:any;
+  constructor(private ProductService:ProductService,private factService: factureService,private dashboardservice:dashboardService) { }
 
   ngOnInit(): void {
     this.get();
     this.getfacturefdata();
+    this.statva();
   }
   get(){
     this.ProductService.getNumberProduct().subscribe(res=>{
@@ -41,5 +44,10 @@ getColor(etat:any) {
       return 'red';
   }
   return 'red';
+}
+statva(){
+  this.dashboardservice.getstatva().subscribe(res=>{
+  this.stat=res;
+  })
 }
 }

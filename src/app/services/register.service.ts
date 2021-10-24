@@ -8,9 +8,9 @@ export class RegisterLoginService {
 
   constructor(private http:HttpClient) { }
   registerUser(data: any){
-    return this.http.post('http://127.0.0.1:8081/api/register',data);
+    return this.http.post('http://127.0.0.1:8000/api/register',data);
   }
   loginUser(data: any){
-    return this.http.post('http://127.0.0.1:8081/api/login',data);
+    return this.http.post('http://127.0.0.1:8000/api/login',data);
   }
 }

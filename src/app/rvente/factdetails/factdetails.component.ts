@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ClientsService } from 'src/app/services/clients.service';
 import { factureService } from 'src/app/services/facture.service';
 import { ProductService } from 'src/app/services/product.service';
-
+declare var export_pdf:any;
 @Component({
   selector: 'app-factdetails',
   templateUrl: './factdetails.component.html',
@@ -19,6 +19,9 @@ Net:any;
   ngOnInit(): void {
     this.id=this.route.snapshot.params.id;
     this.getfacture();
+  }
+  export(){
+    export_pdf();
   }
   getfacture(){
     this.factService.getFactureById(this.id).subscribe(res=>{

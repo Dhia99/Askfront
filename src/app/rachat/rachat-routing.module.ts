@@ -26,7 +26,7 @@ import { StockprComponent } from './stockpr/stockpr.component';
 const routes: Routes = [
   {path:'',component:RachatComponent,
   children:[
-   {path:'',component:AccueilComponent},
+    {path:'',component:AccueilComponent},
    {path:'Products',loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule)},
    {path:'Products/Addproduct',component:AddproductComponent},
    {path:'Products/Editproduct/:id',component:EditProductsComponent},
@@ -34,6 +34,8 @@ const routes: Routes = [
    {path:'resacom',component:ResacompteComponent},
    {path:'stock',component:StockComponent},
    {path:'stock/stockpr',component:StockprComponent},
+   {path:'inventaire',component:InventaireComponent},
+   {path:'inventaire/addinv',component:AddinvComponent},
    {path:'fournisseur',component:FournisseurComponent},
    {path:'fournisseur/addfourn',component:AddfournComponent},
    {path:'fournisseur/editfourn/:id',component:EditfournComponent},
@@ -46,8 +48,6 @@ const routes: Routes = [
    {path:'achat/commf/addcommf',component:AddcommfComponent},
    {path:'achat/bonrcp',component:BonrecComponent},
    {path:'achat/bonrcp/addbonrcp',component:AddbonrecComponent},
-   {path:'inventaire',component:InventaireComponent},
-   {path:'inventaire/addinv',component:AddinvComponent},
   ]}
 ];
 

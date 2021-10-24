@@ -93,7 +93,7 @@
                         <div class="col-xl-7 col-md-6 col-12">
                             <div class="card" style="min-height: 190px;">
                                 <div class="card-header">
-                                    <h3 class="greeting-text">Solde total</h3>
+                                    <h3 class="greeting-text">Trésorerie</h3>
                                     <p class="mb-0"></p>
                                 </div>
                                 <div class="card-body pt-0">
@@ -103,43 +103,43 @@
                                             <p></p>
                                         </div>
                                         <div class="dashboard-content-right">
-                                            <img class="img-fluid" alt="Birou Suite" src="https://birou.tn/images/cashbox.png" width="100" height="50">
+                                            <img class="img-fluid" alt="Birou Suite" src="./assets/caisse.jpg" width="100 " height="50">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-md-6 col-12">
-                            <div class="row">
-                                <div class="col-md-12 col-6">
-                                    <div class="card">
-                                        <div class="card-body d-flex align-items-center justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <div class="avatar bg-rgba-warning m-0 p-25 mr-75 mr-xl-1">
-                                                    <div class="avatar-content">
-                                                        <i class="fas fa-euro-sign text-warning mr-4 font-medium-2"></i>
+                        <div class="col-xl-5 col-md-6 col-12 ">
+                            <div class="row ">
+                                <div class="col-md-12 col-6 ">
+                                    <div class="card ">
+                                        <div class="card-body d-flex align-items-center justify-content-between ">
+                                            <div class="d-flex align-items-center ">
+                                                <div class="avatar bg-rgba-warning m-0 p-25 mr-75 mr-xl-1 ">
+                                                    <div class="avatar-content ">
+                                                        <i class="fas fa-euro-sign text-warning mr-4 font-medium-2 "></i>
                                                     </div>
                                                 </div>
-                                                <div class="total-amount">
-                                                    <h5 class="mb-0">{{dep0}}<sup>&nbsp;EUR</sup></h5>
-                                                    <small class="text-muted">Dépenses</small>
+                                                <div class="total-amount ">
+                                                    <h5 class="mb-0 ">{{(treso-rev)}}<sup>&nbsp;EUR</sup></h5>
+                                                    <small class="text-muted ">Dépenses</small>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-6">
-                                    <div class="card">
-                                        <div class="card-body d-flex align-items-center justify-content-between">
-                                            <div class="d-flex align-items-center">
-                                                <div class="avatar bg-rgba-success m-0 p-25 mr-75 mr-xl-1">
-                                                    <div class="avatar-content">
-                                                        <i class="fas fa-euro-sign text-success mr-4 font-medium-2"></i>
+                                <div class="col-md-12 col-6 ">
+                                    <div class="card ">
+                                        <div class="card-body d-flex align-items-center justify-content-between ">
+                                            <div class="d-flex align-items-center ">
+                                                <div class="avatar bg-rgba-success m-0 p-25 mr-75 mr-xl-1 ">
+                                                    <div class="avatar-content ">
+                                                        <i class="fas fa-euro-sign text-success mr-4 font-medium-2 "></i>
                                                     </div>
                                                 </div>
-                                                <div class="total-amount">
-                                                    <h5 class="mb-0">{{op1}}<sup>&nbsp;EUR</sup></h5>
-                                                    <small class="text-muted">Revenus</small>
+                                                <div class="total-amount ">
+                                                    <h5 class="mb-0 ">27822<sup>&nbsp;EUR</sup></h5>
+                                                    <small class="text-muted ">Revenus</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,8 +161,8 @@
                                     <div _ngcontent-omb-c14=" " class="media-body align-self-center ">
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="minus "></i>
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: seagreen;">0,0&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: seagreen; ">{{stat[0]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                                 <br>
@@ -170,14 +170,15 @@
                             <div _ngcontent-omb-c14=" " class="col-sm-6 pl-0 ">
                                 <div _ngcontent-omb-c14=" " class="media ">
                                     <div _ngcontent-omb-c14=" " class="align-self-center mr-3 text-left text-wd ">
+                                        <h6 _ngcontent-omb-c14=" " class="mb-1 " style="font-size: small;color: seagreen; ">Vente</h6>
                                         <h5 _ngcontent-omb-c14=" " class="mb-0 " style="font-size: small;color: seagreen; ">Mois</h5>
                                     </div>
                                     <div _ngcontent-omb-c14=" " class="media-body align-self-center ">
-                                        <h6 _ngcontent-omb-c14=" " class="mb-1 " style="font-size: small;color: seagreen; ">Vente</h6>
+
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="arrow-up "></i>
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body pl-2">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: seagreen;">134,2&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body pl-2 ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: seagreen; ">{{stat[2]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -192,8 +193,8 @@
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="arrow-down "></i>
 
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: seagreen;">11,6&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: seagreen; ">{{stat[1]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -206,8 +207,8 @@
                                     <div _ngcontent-omb-c14=" " class="media-body align-self-center ">
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="arrow-up "></i>
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body pl-2">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color:  seagreen;">134,2&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body pl-2 ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: seagreen; ">{{stat[3]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -226,8 +227,8 @@
                                     <div _ngcontent-omb-c14=" " class="media-body align-self-center ">
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="minus "></i>
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: steelblue;">0,0&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: steelblue; ">{{stat[4]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                                 <br>
@@ -241,8 +242,8 @@
                                     <div _ngcontent-omb-c14=" " class="media-body align-self-center ">
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="arrow-up "></i>
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body pl-2">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: steelblue;">134,2&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body pl-2 ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: steelblue; ">{{stat[6]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -257,8 +258,8 @@
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="arrow-down "></i>
 
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: steelblue;">11,6&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: steelblue; ">{{stat[5]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -271,56 +272,56 @@
                                     <div _ngcontent-omb-c14=" " class="media-body align-self-center ">
                                         <i _ngcontent-omb-c14=" " class="font-primary " data-feather="arrow-up "></i>
                                     </div>
-                                    <div _ngcontent-omb-c14="" class="media-body pl-2">
-                                        <h5 _ngcontent-omb-c14="" class="mb-0"><span _ngcontent-omb-c14="" class="counter" counto="" style="font-size: small;color: steelblue;">134,2&nbsp;EUR</span></h5>
+                                    <div _ngcontent-omb-c14=" " class="media-body pl-2 ">
+                                        <h5 _ngcontent-omb-c14=" " class="mb-0 "><span _ngcontent-omb-c14=" " class="counter " counto=" " style="font-size: small;color: steelblue; ">{{stat[7]}}&nbsp;EUR</span></h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title ml-4">FOURNISSEURS PAR CHIFFRE D'AFFAIRES</h5>
-                                <hr class="mt-5">
-                                <table class="table" style="font-size: small;">
+                <div class="row ">
+                    <div class="col-sm-6 ">
+                        <div class="card ">
+                            <div class="card-body ">
+                                <h5 class="card-title ml-4 ">FOURNISSEURS PAR CHIFFRE D'AFFAIRES</h5>
+                                <hr class="mt-5 ">
+                                <table class="table " style="font-size: small; ">
                                     <thead>
-                                        <tr style="color: gray;">
+                                        <tr style="color: gray; ">
                                             <th>Fournisseur</th>
                                             <th>HT EUR</th>
                                             <th>TTC EUR</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="myTable">
-                                        <tr *ngFor="let f of facturef">
-                                            <th style="color: gray;">{{f.Nom_fournisseur}}</th>
-                                            <td style="color: steelblue;">{{f.Total_HT}}</td>
-                                            <td style="color: forestgreen;">{{f.Montant_TTC}}</td>
+                                    <tbody id="myTable ">
+                                        <tr *ngFor="let f of facturef ">
+                                            <th style="color: gray; ">{{f.Nom_fournisseur}}</th>
+                                            <td style="color: steelblue; ">{{f.Total_HT}}</td>
+                                            <td style="color: forestgreen; ">{{f.Montant_TTC}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title ml-4">FOURNISSEURS PAR ETAT / DELAI PAIEMENT</h5>
-                                <hr class="mt-5">
-                                <table class="table" style="font-size: small;">
+                    <div class="col-sm-6 ">
+                        <div class="card ">
+                            <div class="card-body ">
+                                <h5 class="card-title ml-4 ">FOURNISSEURS PAR ETAT / DELAI PAIEMENT</h5>
+                                <hr class="mt-5 ">
+                                <table class="table " style="font-size: small; ">
                                     <thead>
-                                        <tr style="color: gray;">
+                                        <tr style="color: gray; ">
                                             <th>Fournisseur</th>
                                             <th>Etat</th>
                                             <th>TTC EUR</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="myTable">
-                                        <tr *ngFor="let f of facturef">
-                                            <th style="color: gray;">{{f.Nom_fournisseur}}</th>
-                                            <td [ngStyle]="{'color':getColor(f.Etat)}">{{f.Etat}}</td>
+                                    <tbody id="myTable ">
+                                        <tr *ngFor="let f of facturef ">
+                                            <th style="color: gray; ">{{f.Nom_fournisseur}}</th>
+                                            <td [ngStyle]="{ 'color':getColor(f.Etat)} ">{{f.Etat}}</td>
                                             <td>{{f.date_echeance}}</td>
                                         </tr>
                                     </tbody>
@@ -329,48 +330,48 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title ml-4">CLIENTS PAR CHIFFRE D'AFFAIRES</h5>
-                                <hr class="mt-5">
-                                <table class="table" style="font-size: small;">
+                <div class="row ">
+                    <div class="col-sm-6 ">
+                        <div class="card ">
+                            <div class="card-body ">
+                                <h5 class="card-title ml-4 ">CLIENTS PAR CHIFFRE D'AFFAIRES</h5>
+                                <hr class="mt-5 ">
+                                <table class="table " style="font-size: small; ">
                                     <thead>
-                                        <tr style="color: gray;">
+                                        <tr style="color: gray; ">
                                             <th>Client</th>
                                             <th>HT EUR</th>
                                             <th>TTC EUR</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="myTable">
-                                        <tr *ngFor="let f of facture">
-                                            <th style="color: gray;">{{f.Nom_client}}</th>
-                                            <td style="color: steelblue;">{{f.Total_HT}}</td>
-                                            <td style="color: forestgreen;">{{f.Montant_TTC}}</td>
+                                    <tbody id="myTable ">
+                                        <tr *ngFor="let f of facture ">
+                                            <th style="color: gray; ">{{f.Nom_client}}</th>
+                                            <td style="color: steelblue; ">{{f.Total_HT}}</td>
+                                            <td style="color: forestgreen; ">{{f.Montant_TTC}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title ml-4">CLIENTS PAR ETAT / DELAI PAIEMENT</h5>
-                                <hr class="mt-5">
-                                <table class="table" style="font-size: small;">
+                    <div class="col-sm-6 ">
+                        <div class="card ">
+                            <div class="card-body ">
+                                <h5 class="card-title ml-4 ">CLIENTS PAR ETAT / DELAI PAIEMENT</h5>
+                                <hr class="mt-5 ">
+                                <table class="table " style="font-size: small; ">
                                     <thead>
-                                        <tr style="color: gray;">
+                                        <tr style="color: gray; ">
                                             <th>Client</th>
                                             <th>Etat</th>
                                             <th>TTC EUR</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="myTable">
-                                        <tr *ngFor="let f of facture">
-                                            <th style="color: gray;">{{f.Nom_client}}</th>
-                                            <td [ngStyle]="{'color':getColor(f.Etat)}">{{f.Etat}}</td>
+                                    <tbody id="myTable ">
+                                        <tr *ngFor="let f of facture ">
+                                            <th style="color: gray; ">{{f.Nom_client}}</th>
+                                            <td [ngStyle]="{ 'color':getColor(f.Etat)} ">{{f.Etat}}</td>
                                             <td>{{f.date_echeance}}</td>
                                         </tr>
                                     </tbody>
@@ -381,4 +382,3 @@
                 </div>
             </div>
         </div>
-    </div>

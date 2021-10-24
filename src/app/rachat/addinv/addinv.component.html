@@ -5,7 +5,7 @@
                 <h3 class="card-title"><i class="fas fa-file-alt mr-2"></i>Creer INVENTAIRE</h3>
             </div>
             <div class="card-body">
-                <form>
+                <form (ngSubmit)="insertData()">
                     <div class="row gy-2 gx-3 align-items-center">
                         <div class="col-sm-4">
                         </div>
@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-sm-4 ">
                             <label for="name" style="font-size: small;color:lightslategrey">Creé Le :</label>
-                            <input type="date" style="font-size: small;" name="name " class="form-control " required>
+                            <input type="date" style="font-size: small;" name="name " class="form-control " [(ngModel)]="inv.date_creation" [ngModelOptions]="{standalone: true}" required>
                         </div>
                     </div>
                     <div class="row gy-2 gx-3 align-items-center">
@@ -35,41 +35,45 @@
                         </div>
                         <div class="col-sm-4 ">
                             <label for="oten" style="font-size: small;color:lightslategrey">Note :</label>
-                            <input type="text" style="font-size: small;" name="note " class="form-control " required>
+                            <input type="text" style="font-size: small;" name="note " class="form-control " [(ngModel)]="inv.note" [ngModelOptions]="{standalone: true}" required>
                         </div>
                     </div>
-                    <hr class="my-4 ">
-                    <div class="row gy-2 gx-3 align-items-center">
-                        <div class="col-sm-3">
-                            <label for="produit" style="font-size: small;color:lightslategrey">Produit :</label>
-                            <input type="text" style="font-size: small;" name="produit" class="form-control " required>
+                    <hr class=" my-4 ">
+                    <div class="row gy-2 gx-3 align-items-center ">
+                        <div class="col-sm-3 ">
+                            <label for="produit " style="font-size: small;color:lightslategrey ">Produit :</label>
+                            <select class="form-control " [(ngModel)]="index_produit " [ngModelOptions]="{standalone: true} " required>
+                              <option *ngFor="let fo of products;let index=index " value="{{index}} ">{{fo.name}}</option>
+                          </select>
                         </div>
-                        <div class="col-sm-3">
-                            <label for="prix" style="font-size: small;margin-bottom: 15%; margin-left: 10%;">Quantité Disponible :</label><br>
+                        <div class="col-sm-3 ">
+                            <label for="prix " style="font-size: small;color:lightslategrey ">Quantité Disponible :</label>
+                            <input type="number " style="font-size: small; " name="quantite " class="form-control " [(ngModel)]="inv.Enstock" [ngModelOptions]="{standalone: true} " required>
+
                         </div>
-                        <div class="col-sm-3">
-                            <label for="quantite" style="font-size: small;color:lightslategrey">Quantité :</label>
-                            <input type="number" style="font-size: small;" name="quantite" class="form-control" required>
+                        <div class="col-sm-3 ">
+                            <label for="quantite " style="font-size: small;color:lightslategrey ">Quantité :</label>
+                            <input type="number " style="font-size: small; " name="quantite " class="form-control " [(ngModel)]="inv.quantite" required>
                         </div>
-                        <div class="col-sm-3">
-                            <label for="quantite" style="font-size: small;color:lightslategrey">Quantité En Stock :</label>
-                            <input type="number" style="font-size: small;" name="quantite" class="form-control" required>
+                        <div class=" col-sm-3 ">
+                            <label for="quantite " style="font-size: small;color:lightslategrey ">Valeur U En Stock :</label>
+                            <input type="number " style="font-size: small; " name="quantite " class="form-control " [(ngModel)]="inv.valeuru" required>
                         </div>
                     </div>
                     <div class="row g-3 ">
-                        <div class="col-md-4">
+                        <div class="col-md-4 ">
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 ">
                         </div>
                         <div class=" text-right col-md-4 mt-5 ">
-                            <button type="submit" style="font-size: small;" class="btn btn-success"><i class=" nav-icon fas fa-plus "></i></button>
+                            <button type="submit " style="font-size: small; " class="btn btn-success "><i class=" nav-icon fas fa-plus "></i></button>
                         </div>
                     </div>
-                    <hr class="my-4">
-                    <div class=" text-right">
-                        <button type="button" style="font-size: small;" (click)="(annuler())" class="btn btn-danger mr-2">Annuler</button>
-                        <button type="submit" style="font-size: small;" class="btn btn-primary ">Enregistrer</button>
+                    <hr class="my-4 ">
+                    <div class=" text-right ">
+                        <button type="button " style="font-size: small; " (click)="(annuler()) " class="btn btn-danger mr-2 ">Annuler</button>
+                        <button type="submit " style="font-size: small; " class="btn btn-primary ">Enregistrer</button>
                     </div>
                 </form>
             </div>

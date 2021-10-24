@@ -48,11 +48,6 @@
                     </div>
                 </div>
                 <hr class="my-4">
-                <div>
-                    <a class="btn btn-primary mb-2" style="color:white;font-size: small;" routerLink="addfacf">
-                        <i class="fas fa-plus mr-2"></i>Creer Facture
-                    </a>
-                </div>
                 <table class="table" style="font-size: small;color: gray; ">
                     <thead>
                         <tr>
@@ -71,7 +66,7 @@
                             <td>{{ff.date_creation}}</td>
                             <td>{{ff.Nom_fournisseur}}</td>
                             <td>{{ff.Montant_TTC}}</td>
-                            <td  [ngStyle]="{'color':getColor(ff.Etat)}">{{ff.Etat}}</td>
+                            <td [ngStyle]="{'color':getColor(ff.Etat)}">{{ff.Etat}}</td>
                             <td></td>
                             <td>
                                 <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="payer(ff)" style="font-size: small;"><i class="fas fa-dollar-sign"></i></button>
@@ -85,104 +80,206 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="container-fluid">
-                    <div class="row">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container-fluid">
+                        <div class="row">
 
-                        <div class="col-md-3">
-                            <p _ngcontent-auq-c14="" class="ml-4">Montant &nbsp; Total</p>
-                            <!---->
-                            <p _ngcontent-auq-c14="" class="primary ml-3"
-                                style="font-weight: 700; font-size:small;color: lightskyblue;">
-                                {{factureSelectionner.Montant_TTC}}&nbsp;EUR <span _ngcontent-auq-c14=""
-                                    style="font-weight: 400; font-size: small"></span></p>
+                            <div class="col-md-3">
+                                <p _ngcontent-auq-c14="" class="ml-4">Montant &nbsp; Total</p>
+                                <!---->
+                                <p _ngcontent-auq-c14="" class="primary ml-3" style="font-weight: 700; font-size:small;color: lightskyblue;">
+                                    {{factureSelectionner.Montant_TTC}}&nbsp;EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small"></span></p>
+                            </div>
+
+                            <div class="col-md-4 ml-5">
+                                <p _ngcontent-auq-c14="" class="ml-4">Montant à &nbsp; &nbsp; &nbsp; payer
+                                </p>
+
+                                <p _ngcontent-auq-c14="" class="primary ml-5" style="font-weight: 700; font-size:small;color: rgb(135, 250, 135);">
+                                    &nbsp;
+                                    <!-- {{p[0].paye}}  -->
+
+                                    {{montantPayer}} EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small"></span></p>
+                            </div>
+                            <div class="col-md-3 ml-auto">
+                                <p _ngcontent-auq-c14="" class="ml-4">Reste à payer</p>
+                                <!---->
+                                <p _ngcontent-auq-c14="" class="primary ml-5" style="font-weight: 700; font-size:small;color:red;">
+                                    &nbsp;
+                                    <!-- {{p[0].reste}} -->
+                                    {{factureSelectionner.Montant_TTC-montantPayer}} EUR <span _ngcontent-auq-c14="" style="font-weight: 400; font-size: small"></span></p>
+                            </div>
                         </div>
 
-                        <div class="col-md-4 ml-5">
-                            <p _ngcontent-auq-c14="" class="ml-4">Montant à &nbsp; &nbsp; &nbsp;
-                                payer</p>
-
-                                <p _ngcontent-auq-c14="" class="primary ml-5"
-                                style="font-weight: 700; font-size:small;color: rgb(135, 250, 135);">
-                                &nbsp; 
-                                <!-- {{p[0].paye}}  -->
-
-                                {{montantPayer}} EUR <span _ngcontent-auq-c14=""
-                                    style="font-weight: 400; font-size: small"></span></p>
-                        </div>
-                        <div class="col-md-3 ml-auto">
-                            <p _ngcontent-auq-c14="" class="ml-4">Reste à payer</p>
-                            <!---->
-                            <p _ngcontent-auq-c14="" class="primary ml-5"
-                                style="font-weight: 700; font-size:small;color:red;">
-                                &nbsp;
-                                <!-- {{p[0].reste}} -->
-                                {{factureSelectionner.Montant_TTC-montantPayer}} EUR <span _ngcontent-auq-c14=""
-                                    style="font-weight: 400; font-size: small"></span></p>
-                        </div>
                     </div>
 
-                </div>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid mb-2">
-                    <div class="row ml">
-                        <div class="col-md-6">
-                            <label for="MP" style="font-size: small;color:lightslategrey">Montant à
-                                payer</label>
-                            <input type="text" style="font-size: small;" name="MP"
-                            [(ngModel)]="paiement.paye"
-                            class="form-control " required
-                            (change)="getmontantReste()">
-                             
-
-                        </div>
-                        <div class="col-md-6">
-                            <label for="RP" style="font-size: small;color:lightslategrey">Reste à
-                                payer:</label>
-                            <input type="text" style="font-size: small;"  
-                          
-                            [(ngModel)]="paiement.reste"
-                            name="RP" class="form-control " required disabled>
-                                  <!-- [(ngModel)]="p[0].reste"  [ngModelOptions]="{standalone: true}"-->
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="DP" style="font-size: small;color:lightslategrey">Date de
-                                règlement</label>
-                            <input type="date" style="font-size: small;" name="DP"  
-                            [(ngModel)]="paiement.date_reglement"
-                                class="form-control " required disabled>
-                                <!-- [(ngModel)]="p[0].date_reglement"  [ngModelOptions]="{standalone: true}" -->
-                        </div>
-                        <div class="col-md-6">
-                            <label for="DE" style="font-size: small;color:lightslategrey">Date
-                                d'échéance</label>
-                            <input type="date" style="font-size: small;" 
-                            [(ngModel)]="paiement.date_echenace"
-                                class="form-control "  required disabled>
-                                <!-- [(ngModel)]="p[0].date_echenace"  [ngModelOptions]="{standalone: true}"-->
-                        </div>
-                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary"
-                        style="color:white;font-size: small;" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-success"
-                        style="color:white;font-size: small;" (click)="createPaiement()"
-                        data-dismiss="modal">Payer</button>
+                <div class="modal-body">
+                    <div class="container-fluid mb-2">
+                        <div class="row ml">
+                            <div class="col-md-6">
+                                <label for="MP" style="font-size: small;color:lightslategrey">Montant à
+                                payer</label>
+                                <input type="text" style="font-size: small;" name="MP" [(ngModel)]="paiement.paye" class="form-control " required (change)="getmontantReste()">
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <label for="RP" style="font-size: small;color:lightslategrey">Reste à
+                                payer:</label>
+                                <input type="text" style="font-size: small;" [(ngModel)]="paiement.reste" name="RP" class="form-control " required disabled>
+                                <!-- [(ngModel)]="p[0].reste"  [ngModelOptions]="{standalone: true}"-->
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="DP" style="font-size: small;color:lightslategrey">Date de
+                                règlement</label>
+                                <input type="date" style="font-size: small;" name="DP" [(ngModel)]="paiement.date_reglement" class="form-control " required disabled>
+                                <!-- [(ngModel)]="p[0].date_reglement"  [ngModelOptions]="{standalone: true}" -->
+                            </div>
+                            <div class="col-md-6">
+                                <label for="DE" style="font-size: small;color:lightslategrey">Date
+                                d'échéance</label>
+                                <input type="date" style="font-size: small;" [(ngModel)]="paiement.date_echenace" class="form-control " required disabled>
+                                <!-- [(ngModel)]="p[0].date_echenace"  [ngModelOptions]="{standalone: true}"-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" style="color:white;font-size: small;" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-success" style="color:white;font-size: small;" (click)="createPaiement()" data-dismiss="modal">Payer</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-200"> <button id="btnModel" type="button" style="visibility: hidden;" class="btn btn-primary" data-toggle="modal" data-target="#example"> Launch multistep Wizard </button> </div>
+        <!-- Modal -->
+
+
+
+        <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Smart Wizard modal</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="smartwizard">
+                            <ul>
+                                <li><a>Produit<br /></a></li>
+                                <li><a>Fournisseur<br /></a></li>
+                                <li><a>Facture<br /></a></li>
+                            </ul>
+                            <div>
+                                <div id="produit" *ngIf="choixWizart=='produit'">
+                                    <div class="row">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Produit" [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}"> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Quantité" [(ngModel)]="product.Enstock" [ngModelOptions]="{standalone: true}" required> </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="TVA" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Prix public" required> </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Prix ttc " required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Ref" required> </div>
+                                    </div>
+                                </div>
+                                <div id="fournisseur" *ngIf="choixWizart=='fournisseur'">
+                                    <div class="row">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Nom" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Civilité" required> </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Idnetifiant" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Email" required> </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Address" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Tel" required> </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Raison sociale" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Matricule fiscale" required> </div>
+                                    </div>
+                                </div>
+                                <div id="facture" *ngIf="choixWizart=='facture'">
+                                    <div class="row">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Date de création" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Date d'echéance" required> </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Produit" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Quantité" required> </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Total TVA" required> </div>
+                                        <div class="col-md-6"> <input type="text" class="form-control" placeholder="Total TTC" required> </div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 10px; text-align: right;">
+                                    <a class="btn btn-primary mb-2" style="color:white;font-size: small; " (click)="suivant()">
+                                     Suivant
+                                </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <script>
+
+
+setInterval(() =>{
+
+
+    $(document).ready(function(){
+
+        $('#smartwizard').smartWizard({
+        selected: 0,
+        theme: 'dots',
+        autoAdjustHeight:true,
+        transitionEffect:'fade',
+        showStepURLhash: false,
+
+        });
+
+        });
+},2000);
+    </script> -->
+
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<script>
+    $(document).ready(function(){
+
+$('#smartwizard').smartWizard({
+selected: 0,
+theme: 'dots',
+autoAdjustHeight:true,
+transitionEffect:'fade',
+showStepURLhash: false,
+
+});
+
+});
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.min.js"></script> -->
+
+    </div>

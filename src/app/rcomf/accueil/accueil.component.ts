@@ -6,6 +6,9 @@ import { operationService } from 'src/app/services/opeartion.service';
 import { PaiementService } from 'src/app/services/paiement.service';
 import { PaiementcService } from 'src/app/services/paiementc.service';
 import { ProductService } from 'src/app/services/product.service';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
+import { dashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-accueil',
@@ -29,12 +32,14 @@ export class AccueilComponent implements OnInit {
   dep0:any;
   op1:any;
   depp:any;
-  constructor(private operationservice:operationService,private depenseservice:depenseService,private produitservice:ProductService,private factureServicef: FacturesService,private factService: factureService,private paiementService1:PaiementService,private paiementService:PaiementcService) { }
+  stat:any;
+  constructor(private operationservice:operationService,private depenseservice:depenseService,private produitservice:ProductService,private factureServicef: FacturesService,private factService: factureService,private paiementService1:PaiementService,private paiementService:PaiementcService,private dashboardservice:dashboardService) { }
   ngOnInit(): void {
     this.get();
     this.getfactureffdata();
     this.getfacturefdata();
     this.gettreso();
+    this.statva();
   }
   get(){
     this.produitservice.getNumberProduct().subscribe(res=>{
@@ -69,16 +74,19 @@ export class AccueilComponent implements OnInit {
     this.mp=res;
     this.reg=0;
     this.areg=0;
+    this.treso=0;
     console.log("Vente");
     for (var i = 0;i <this.mp.length; i++) {
      this.reg+=this.mp[i].paye;
      console.log(this.reg);
+     this.treso=this.reg-this.reg1;
      }
     });
     this.paiementService1.getData().subscribe(res=>{
       this.mp1=res;
       this.reg1=0;
       this.areg1=0;
+      this.treso=0;
       console.log("achat");
       for (var i = 0;i <this.mp1.length; i++) {
        this.reg1+=this.mp1[i].paye;
@@ -91,7 +99,8 @@ export class AccueilComponent implements OnInit {
         this.depp=0;
         this.dep0=0;
         for(var i=0;i<this.dep.length;i++){
-          this.dep0=this.reg1+this.dep[i].montant;
+          this.dep0+=this.dep[i].montant;
+          this.depp=this.reg1+this.dep0;
           this.treso-=this.dep[i].montant;
         }
       })
@@ -99,15 +108,24 @@ export class AccueilComponent implements OnInit {
         this.op=res;
         this.rev=0;
         this.op1=0;
+        this.treso=0;
         for (var i = 0;i <this.op.length; i++){
           if (this.op[i].typep=="Crédit"){
-            this.op1=this.reg+this.op[i].montant;
-            this.treso+=this.op[i].montant;
+            this.op1+=this.op[i].montant
+            this.rev=this.reg+this.op1;
+            this.treso+=this.rev;
           }else{
             this.dep0+=this.op[i].montant;
-            this.treso-=this.op[i].montant;
+            this.treso-=this.dep0;
           }
         }
       })
 }
+statva(){
+  this.dashboardservice.getstatva().subscribe(res=>{
+  this.stat=res;
+  })
+}
+
+
 }

@@ -23,31 +23,24 @@
             </div>
         </div>
     </form>
-    <ul class="navbar-nav ml-auto ">
-        <li class="nav-item dropdown ">
-            <a class="nav-link " data-toggle="dropdown " href="# ">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link " data-toggle="dropdown" href="">
                 <i class="far fa-bell "></i>
-                <span class="badge badge-primary navbar-badge ">15</span>
+                <span class="badge badge-primary navbar-badge ">{{nbp+nbe}}</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right ">
-                <span class="dropdown-header ">15 Notifications</span>
-                <div class="dropdown-divider "></div>
-                <a href="# " class="dropdown-item ">
-                    <i class="fas fa-envelope mr-2 "></i> 4 new messages
-                    <span class="float-right text-muted text-sm ">3 mins</span>
-                </a>
-                <div class="dropdown-divider "></div>
-                <a href="# " class="dropdown-item ">
-                    <i class="fas fa-users mr-2 "></i> 8 friend requests
-                    <span class="float-right text-muted text-sm ">12 hours</span>
-                </a>
-                <div class="dropdown-divider "></div>
-                <a href="# " class="dropdown-item ">
-                    <i class="fas fa-file mr-2 "></i> 3 new reports
-                    <span class="float-right text-muted text-sm ">2 days</span>
-                </a>
-                <div class="dropdown-divider "></div>
-                <a href="# " class="dropdown-item dropdown-footer ">See All Notifications</a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <span class="dropdown-header ">Notifications</span>
+                <table class="table " style="font-size: small;color: gray; ">
+                    <tbody style="margin-left: 60%">
+                        <tr *ngFor="let p of produit">
+                            <td style="color: dodgerblue;">Le produit {{p.name}} a {{p.Enstock}} : quantité</td>
+                        </tr>
+                        <tr *ngFor="let e of echeance">
+                            <td style="color: dodgerblue;">facture de {{e.Nom_fournisseur}} en retard ({{e.date_echeance}})</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -57,8 +50,8 @@
             </a>
         </li>
         <li class="nav-ite">
-            <a class="nav-link">
-                <i class=" fas fa-sign-out-alt "></i>
+            <a class="nav-link" href="">
+                <i class=" fas fa-sign-out-alt" (click)="(logout())"></i>
             </a>
         </li>
     </ul>

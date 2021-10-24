@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
     AdddevisRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
   ]
 })
 export class AdddevisModule { }

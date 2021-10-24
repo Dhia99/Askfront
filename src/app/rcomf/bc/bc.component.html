@@ -14,17 +14,16 @@
                             <th>CLIENT</th>
                             <th>CUMUL DEBIT</th>
                             <th>CUMUL CRÉDIT</th>
-                            <th>SOLDE DÉBIT</th>
-                            <th>SOLDE CRÉDIT</th>
+                            <th>SOLDE DEBIT</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let p1 of p">
                             <td>{{p1.reffact}}</td>
                             <td>{{p1.client}}</td>
-                            <td style="color:red;">{{p1.reste}}</td>
-                            <td style="color: forestgreen;">{{p1.paye}}</td>
-                            <td style="color:red;">{{p1.reste+p1.paye}}</td>
+                            <td style="color:red;">{{p1.reste}} EUR</td>
+                            <td style="color: forestgreen;">{{p1.paye}} EUR</td>
+                            <td style="color:red;">{{p1.reste+p1.paye}} EUR</td>
                             <td></td>
                         </tr>
                     </tbody>

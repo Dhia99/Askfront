@@ -44,7 +44,7 @@ constructor(private formBuilder:FormBuilder,private toastr: ToastrService,privat
           timeOut:2000,
           progressBar:true
         });
-        this.router.navigate(['Login']);
+        this.router.navigate(['']);
 
       }else{
         this.toastr.error(JSON.stringify(this.data.message),JSON.stringify(this.data.code),{

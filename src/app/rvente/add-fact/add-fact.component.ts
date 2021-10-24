@@ -41,6 +41,7 @@ export class AddFactComponent implements OnInit {
     this.facture.Timbre_fiscale=0.6;
     this.getfacturesData()
     this.getproduits();
+    this.facture.Total_HT=0;
     this.facture.Montant_TTC=0;
     this.facture.Montant_TVA=0;
     this.facture.note="pas de note";
@@ -67,10 +68,9 @@ export class AddFactComponent implements OnInit {
       for (var i = 0; i < this.factureclient.length; i++) {
         let product = new ListProductv();
         product.quantite=this.factureclient[i].quantite_entre;
-        product.id_product=this.factureclient[i].id;
-        product.Libelle=this.factureclient[i].Libelle;
+        product.id_product=this.factureclient[i].produit.id;
+        product.Libelle=this.factureclient[i].produit.name;
         listvente.push(product);
-
       }
       this.facture.ListProductv=listvente;
       this.factService.insertData(this.facture).subscribe(res => {

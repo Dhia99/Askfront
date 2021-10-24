@@ -26,12 +26,14 @@ import { AddfacturefComponent } from './addfacturef/addfacturef.component';
 import { ResacompteComponent } from './resacompte/resacompte.component';
 import { StockComponent } from './stock/stock.component';
 import { StockprComponent } from './stockpr/stockpr.component';
-import { EditfactfComponent } from './editfactf/editfactf.component';
-import { FactfdetailsComponent } from './factfdetails/factfdetails.component';
 import { InventaireComponent } from './inventaire/inventaire.component';
 import { AddinvComponent } from './addinv/addinv.component';
+import { EditfactfComponent } from './editfactf/editfactf.component';
+import { FactfdetailsComponent } from './factfdetails/factfdetails.component';
+
+
 @NgModule({
-  declarations: [RachatComponent, SidebarComponent, TopbarComponent, FooterComponent, AsidebarComponent, AccueilComponent,FournisseurComponent,AddproductComponent,EditProductsComponent,ProductDetailsComponent, AddfournComponent, EditfournComponent, FourndetailsComponent, FacturefComponent, BonrecComponent, CommfComponent, AddcommfComponent, AddbonrecComponent, AddfacturefComponent, ResacompteComponent, StockComponent, StockprComponent,EditfactfComponent, FactfdetailsComponent, InventaireComponent, AddinvComponent],
+  declarations: [RachatComponent, SidebarComponent, TopbarComponent, FooterComponent, AsidebarComponent, AccueilComponent,FournisseurComponent,AddproductComponent,EditProductsComponent,ProductDetailsComponent, AddfournComponent, EditfournComponent, FourndetailsComponent, FacturefComponent, BonrecComponent, CommfComponent, AddcommfComponent, AddbonrecComponent, AddfacturefComponent, ResacompteComponent, StockComponent, StockprComponent, InventaireComponent, AddinvComponent, EditfactfComponent, FactfdetailsComponent],
   imports: [
     CommonModule,
     RachatRoutingModule,

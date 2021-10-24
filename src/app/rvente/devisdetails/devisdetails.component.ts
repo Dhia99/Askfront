@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Devismodel } from 'src/app/models/devis.model';
 import { devisService } from 'src/app/services/devis.service';
+declare var export_pdf:any;
 @Component({
   selector: 'app-devisdetails',
   templateUrl: './devisdetails.component.html',
@@ -18,6 +18,9 @@ devis:any;
   ngOnInit(): void {
     this.id=this.route.snapshot.params.id;
     this.getdevis();
+  }
+  export(){
+    export_pdf();
   }
   getdevis(){
     this.devisService.getdevisById(this.id).subscribe(res=>{

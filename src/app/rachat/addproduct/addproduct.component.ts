@@ -28,9 +28,8 @@ export class AddproductComponent implements OnInit {
     this.product.Enstock=0;
     this.product.refconst=0;
     this.product.refint=0;
-    this.product.category='cat';
-    this.product.pricev=0;
-    this.product.marque='marque';
+    this.product.marque="marque";
+    this.product.category="Cat";
   }
   getProductsData(){
     this.productService.getData().subscribe(res=>{

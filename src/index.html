@@ -4,6 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>ASKUISINES</title>
+
+    <script type="text/javascript">
+        var cfgApiBaseUrl = "http://localhost:8001";
+
+        window.cfgApiBaseUrl = cfgApiBaseUrl;
+    </script>
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="assets/ASK.jpg">
@@ -33,6 +39,88 @@
                 });
             });
         }, 2000);
+    </script>
+
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#smartwizard').smartWizard({
+                selected: 0,
+                theme: 'dots',
+                autoAdjustHeight: true,
+                transitionEffect: 'fade',
+                showStepURLhash: false,
+
+            });
+
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.min.js"></script>
+
+
+
+    <div class="modal fade" id="loadermodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="" style="width: 1200px;">
+
+                <div class="modal-body" style="margin-left: 160px;">
+
+
+                    <div class="ml-2 pl-3">
+                        <h1 style="color: blue;">En cours de traitement ...</h1>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-success" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-danger" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-light" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-dark" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function export_pdf() {
+            var divContents = $("#contnetpdf").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Title</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
     </script>
 </body>
 

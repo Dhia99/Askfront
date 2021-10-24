@@ -12,16 +12,15 @@ import { FournisseursService } from 'src/app/services/fournisseurs.service';
 export class AddfournComponent implements OnInit {
   fournisseurs: any;
   fournisseur= new FournisseurModel();
-
   constructor(private route:ActivatedRoute,private router:Router,private toastr: ToastrService,private fournisseurService:FournisseursService) { }
 
   ngOnInit(): void {
-    this.getFournisseursData();
-    this.fournisseur.CIVILITE='M';
     this.fournisseur.IDENTIFIANT="F-";
     this.fournisseur.EMAIL="exemple@exemple.com";
-    this.fournisseur.MATFISCALE=0;
+    this.fournisseur.CIVILITE="Mme";
     this.fournisseur.RAISONSOCIALE=0;
+    this.fournisseur.MATFISCALE=0;
+    this.getFournisseursData();
   }
   getFournisseursData(){
     this.fournisseurService.getfournisseurData().subscribe((res: any)=>{
